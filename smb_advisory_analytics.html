@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advisory Analytics — Deep Transaction Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0c;
+    --ink-2: #3d3b36;
+    --ink-3: #7a7870;
+    --ink-4: #b8b5ac;
+    --paper: #f5f3ee;
+    --paper-2: #eeebe4;
+    --paper-3: #e5e1d8;
+    --accent: #1a4f3a;
+    --accent-2: #2d7a56;
+    --accent-light: #d4ede2;
+    --amber: #b87333;
+    --amber-light: #f5e6d3;
+    --blue: #1e3a5f;
+    --blue-light: #dce8f5;
+    --red: #7a2020;
+    --red-light: #f5dada;
+    --purple: #3d2060;
+    --purple-light: #e8daf5;
+    --teal: #2c6e6e;
+    --teal-light: #d4e8e8;
+    --radius: 4px;
+    --radius-lg: 10px;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .shell { max-width: 980px; margin: 0 auto; padding: 0 24px 80px; }
+
+  header {
+    padding: 40px 0 32px;
+    border-bottom: 1px solid var(--paper-3);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 40px; height: 40px;
+    background: var(--accent);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-mark svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 1.8; }
+  .brand-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .brand-text p { font-size: 13px; color: var(--ink-3); margin-top: 1px; }
+  .powered-badge {
+    font-size: 11px;
+    color: var(--ink-3);
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    padding: 4px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  .tab {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    border: none;
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-right: 1px solid var(--paper-3);
+    transition: all 0.15s;
+  }
+  .tab:last-child { border-right: none; }
+  .tab:hover { background: var(--paper-3); color: var(--ink-2); }
+  .tab.active { background: var(--ink); color: var(--paper); }
+
+  textarea, input[type="text"], input[type="number"] {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: white;
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    resize: vertical;
+    line-height: 1.6;
+  }
+  textarea:focus, input:focus { border-color: var(--accent-2); }
+  textarea { min-height: 150px; font-size: 13px; font-family: 'DM Mono', 'Courier New', monospace; }
+  ::placeholder { color: var(--ink-4); }
+
+  .hint { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+
+  input[type="file"] {
+    font-size: 13px;
+    color: var(--ink-2);
+    background: white;
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .analyse-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .analyse-btn:hover { background: var(--accent-2); }
+  .analyse-btn:active { transform: scale(0.98); }
+  .analyse-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .spinner {
+    width: 14px; height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--paper-3);
+    margin: 36px 0;
+  }
+
+  .error-box {
+    background: var(--red-light);
+    border: 1px solid #d4a0a0;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--red);
+    margin-top: 16px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .summary-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.25s ease both;
+  }
+  .summary-card {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .summary-num { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); }
+  .summary-lbl { font-size: 11px; color: var(--ink-3); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    animation: fadeUp 0.2s ease both;
+  }
+  .results-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .results-meta { font-size: 12px; color: var(--ink-3); }
+
+  /* Chart sections */
+  .chart-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 28px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--paper-3);
+    animation: fadeUp 0.25s ease both;
+  }
+  .chart-section-label:first-of-type { margin-top: 0; }
+
+  .charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+    animation: fadeUp 0.3s ease both;
+  }
+  .charts-row.single { grid-template-columns: 1fr; }
+
+  .chart-card {
+    background: white;
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+  }
+  .chart-card.tall .chart-wrap { height: 240px; }
+  .chart-card.wide { grid-column: 1 / -1; }
+
+  .chart-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .chart-subtitle {
+    font-size: 12px;
+    color: var(--ink-4);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .chart-wrap { position: relative; height: 200px; }
+
+  /* Top 5 list charts */
+  .top-list { display: flex; flex-direction: column; gap: 10px; }
+  .top-item {
+    display: grid;
+    grid-template-columns: 24px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    font-size: 13px;
+  }
+  .top-rank {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink-4);
+    text-align: center;
+  }
+  .top-bar-container {
+    position: relative;
+    background: var(--paper-2);
+    border-radius: 3px;
+    height: 28px;
+    overflow: hidden;
+  }
+  .top-bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--accent-light);
+    border-right: 2px solid var(--accent);
+    transition: width 0.4s ease;
+  }
+  .top-bar.expense { background: var(--amber-light); border-right-color: var(--amber); }
+  .top-bar.income { background: var(--accent-light); border-right-color: var(--accent); }
+  .top-label {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    line-height: 28px;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+  .top-amount {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+
+  /* Heatmap */
+  .heatmap {
+    display: grid;
+    grid-template-columns: 30px repeat(53, 1fr);
+    gap: 2px;
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+  .heatmap-row-label {
+    line-height: 14px;
+    text-align: right;
+    padding-right: 4px;
+  }
+  .heatmap-cell {
+    aspect-ratio: 1;
+    background: var(--paper-2);
+    border-radius: 2px;
+    min-width: 8px;
+    max-height: 14px;
+  }
+  .heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 10px;
+    color: var(--ink-3);
+    justify-content: flex-end;
+  }
+  .heatmap-legend-cell {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  /* Day of week */
+  .dow-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .dow-cell {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    padding: 10px 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .dow-fill {
+    position: absolute;
+    inset: auto 0 0 0;
+    background: var(--amber-light);
+    z-index: 0;
+  }
+  .dow-content { position: relative; z-index: 1; }
+  .dow-day {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .dow-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-top: 4px;
+  }
+
+  /* Recurring list */
+  .recurring-list { display: flex; flex-direction: column; gap: 8px; }
+  .recurring-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    font-size: 13px;
+  }
+  .recurring-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+  .recurring-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .recurring-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .recurring-meta { font-size: 11px; color: var(--ink-3); }
+  .recurring-amount {
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+    color: var(--ink);
+    margin-left: 12px;
+    font-weight: 500;
+  }
+
+  /* Forecast indicator */
+  .forecast-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .forecast-stat {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .forecast-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .forecast-num.pos { color: var(--accent); }
+  .forecast-num.neg { color: var(--red); }
+  .forecast-lbl {
+    font-size: 10px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 720px) {
+    .charts-row { grid-template-columns: 1fr; }
+    .summary-bar { grid-template-columns: repeat(2, 1fr); }
+    .heatmap { grid-template-columns: 24px repeat(53, 1fr); }
+  }
+
+  /* Bank tile styles */
+  .bank-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 10px;
+    border: 1px solid var(--paper-3);
+    border-radius: var(--radius);
+    cursor: pointer;
+    background: white;
+    font-size: 12px;
+    color: var(--ink-2);
+    text-align: center;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .bank-tile:hover { border-color: var(--accent-2); background: var(--paper); }
+  .bank-tile.selected { border-color: var(--accent); background: var(--accent-light); }
+  .bank-logo {
+    width: 36px; height: 36px;
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg>
+      </div>
+      <div class="brand-text">
+        <h1>Advisory Analytics</h1>
+        <p>Deep transaction insights for SMB advisors</p>
+      </div>
+    </div>
+  </header>
+
+  <p class="section-label">Upload transactions as CSV or connect bank account</p>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('csv')">Upload CSV</button>
+    <button class="tab" onclick="switchTab('bank')">Connect bank account</button>
+  </div>
+
+  <div id="tab-csv">
+    <input type="file" id="csv-input" accept=".csv" />
+    <p class="hint" style="margin-top:8px;">Expected columns: date, description, amount. Analysed entirely on-device.</p>
+    <p id="csv-status" style="display:none; margin-top:10px; font-size:13px; color:var(--accent); display:none; align-items:center; gap:8px;"></p>
+  </div>
+
+  <div id="tab-bank" style="display:none;">
+    <div style="border:1px solid var(--paper-3); border-radius:var(--radius-lg); overflow:hidden;">
+      <div style="padding:20px 22px; border-bottom:1px solid var(--paper-3); background:white;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span style="font-size:14px; font-weight:500; color:var(--ink);">Secure Open Banking connection</span>
+        </div>
+        <p style="font-size:13px; color:var(--ink-3); line-height:1.6;">Connect your client's bank account directly using PSD2-compliant Open Banking. Data is fetched in real time with read-only access — no credentials are stored.</p>
+      </div>
+
+      <div style="padding:20px 22px; background:white;">
+        <p style="font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:14px;">Select your client's bank</p>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;" id="bank-grid">
+          <div class="bank-tile" onclick="selectBank(this, 'Danske Bank')"><div class="bank-logo" style="background:#003755; color:white;">DB</div><span>Danske Bank</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Nordea')"><div class="bank-logo" style="background:#00005e; color:white;">NO</div><span>Nordea</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Jyske Bank')"><div class="bank-logo" style="background:#e30613; color:white;">JB</div><span>Jyske Bank</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Sydbank')"><div class="bank-logo" style="background:#004b8d; color:white;">SB</div><span>Sydbank</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Arbejdernes Landsbank')"><div class="bank-logo" style="background:#c8102e; color:white;">AL</div><span>Arbejdernes Landsbank</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Sparekassen Danmark')"><div class="bank-logo" style="background:#006737; color:white;">SD</div><span>Sparekassen Danmark</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Lunar')"><div class="bank-logo" style="background:#1a1a2e; color:#a78bfa;">LU</div><span>Lunar</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Handelsbanken')"><div class="bank-logo" style="background:#00594c; color:white;">HB</div><span>Handelsbanken</span></div>
+          <div class="bank-tile" onclick="selectBank(this, 'Other bank')">
+            <div class="bank-logo" style="background:var(--paper-3); color:var(--ink-3);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+            <span>Other</span>
+          </div>
+        </div>
+
+        <div id="bank-connect-flow" style="display:none; margin-top:20px; padding-top:20px; border-top:1px solid var(--paper-2);">
+          <div id="bank-step-1">
+            <p style="font-size:13px; color:var(--ink-2); margin-bottom:14px;">You are connecting to <strong id="selected-bank-name"></strong>. Your client will be redirected to their bank to authenticate and grant read-only access to their transaction history.</p>
+            <div style="background:var(--paper-2); border-radius:var(--radius); padding:12px 14px; font-size:12px; color:var(--ink-3); margin-bottom:16px; display:flex; gap:10px; align-items:flex-start;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" style="flex-shrink:0; margin-top:1px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Read-only access · No credentials stored · PSD2 compliant · Consent expires in 90 days</span>
+            </div>
+            <button class="analyse-btn" style="margin-top:0;" onclick="simulateBankConnect()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              Authorise with bank
+            </button>
+          </div>
+
+          <div id="bank-step-2" style="display:none;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+              <div style="width:28px; height:28px; border-radius:50%; background:var(--accent-light); display:flex; align-items:center; justify-content:center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span style="font-size:14px; font-weight:500; color:var(--ink);">Bank connected successfully</span>
+            </div>
+            <div style="background:var(--accent-light); border-radius:var(--radius); padding:12px 14px; font-size:13px; color:var(--accent); margin-bottom:16px;">
+              Retrieved transactions from <strong id="connected-bank-name"></strong> · Jan 1 – May 10, 2026 · Consent valid for 90 days
+            </div>
+            <p style="font-size:13px; color:var(--ink-3);">Transaction data is loaded and ready to analyse. Click the button below to generate analytics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="analyse-btn" id="analyse-btn" onclick="runAnalysis()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg>
+    Generate overview
+  </button>
+
+  <div id="results"></div>
+</div>
+
+<script>
+/* ============================================================
+   TAB / BANK CONNECT (same flow as original, no API calls)
+   ============================================================ */
+let currentTab = 'csv';
+let bankConnected = false;
+let bankData = null;
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tab-csv').style.display = tab === 'csv' ? 'block' : 'none';
+  document.getElementById('tab-bank').style.display = tab === 'bank' ? 'block' : 'none';
+  document.querySelectorAll('.tab').forEach((el, i) => {
+    el.classList.toggle('active', ['csv','bank'][i] === tab);
+  });
+}
+
+function selectBank(el, name) {
+  document.querySelectorAll('.bank-tile').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('selected-bank-name').textContent = name;
+  document.getElementById('bank-connect-flow').style.display = 'block';
+  document.getElementById('bank-step-1').style.display = 'block';
+  document.getElementById('bank-step-2').style.display = 'none';
+  bankConnected = false;
+}
+
+function simulateBankConnect() {
+  const bankName = document.getElementById('selected-bank-name').textContent;
+  const btn = event.target.closest('button');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Connecting...';
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Authorise with bank';
+    document.getElementById('bank-step-1').style.display = 'none';
+    document.getElementById('bank-step-2').style.display = 'block';
+    document.getElementById('connected-bank-name').textContent = bankName;
+    bankConnected = true;
+    bankData = generateDemoBankData(bankName);
+  }, 1800);
+}
+
+/* Generate a richer demo dataset for the bank flow so all charts have meaningful data */
+function generateDemoBankData(bankName) {
+  const lines = [`date,description,amount`];
+  const startDate = new Date(2026, 0, 1);
+  const endDate = new Date(2026, 4, 10);
+
+  // Recurring fixed costs (same amount, monthly)
+  const fixed = [
+    { day: 1, desc: 'Office rent - Nordhavn', amt: -14500 },
+    { day: 5, desc: 'Salary payments - 5 employees', amt: -78000 },
+    { day: 12, desc: 'Payroll taxes and pension', amt: -23400 },
+    { day: 18, desc: 'AWS hosting and infrastructure', amt: -8500 },
+    { day: 22, desc: 'Loan repayment - Danske Bank', amt: -18500 },
+    { day: 25, desc: 'Software - Microsoft 365', amt: -3200 },
+    { day: 28, desc: 'Insurance - Tryg Forsikring', amt: -4800 },
+  ];
+
+  // Recurring income (clients invoiced monthly)
+  const recurringIncome = [
+    { day: 3, desc: 'Client invoice - Novo Nordisk A/S', amt: 85000, jitter: 0.05 },
+    { day: 10, desc: 'Client invoice - Maersk A/S', amt: 92000, jitter: 0.04 },
+    { day: 15, desc: 'Client invoice - LEGO A/S', amt: 128000, jitter: 0.03 },
+    { day: 20, desc: 'Client invoice - Ørsted A/S', amt: 74000, jitter: 0.05 },
+  ];
+
+  // Variable expenses (random)
+  const variableExpenses = [
+    { desc: 'LinkedIn ads campaign', range: [12000, 22000], cat: 'Marketing' },
+    { desc: 'Google Ads', range: [8000, 18000], cat: 'Marketing' },
+    { desc: 'Travel expenses - Stockholm', range: [8000, 16000], cat: 'Travel' },
+    { desc: 'Travel expenses - Copenhagen', range: [3000, 7000], cat: 'Travel' },
+    { desc: 'Contractor invoice - development', range: [25000, 45000], cat: 'Contractors' },
+    { desc: 'Contractor invoice - design', range: [15000, 28000], cat: 'Contractors' },
+    { desc: 'Recruitment fees - Compass HR', range: [35000, 50000], cat: 'Other' },
+    { desc: 'Office supplies - Lyreco', range: [800, 2400], cat: 'Office' },
+    { desc: 'Team lunch - Restaurant', range: [1800, 4200], cat: 'Other' },
+    { desc: 'Legal fees - Bech-Bruun', range: [12000, 28000], cat: 'Other' },
+  ];
+
+  // VAT and one-off incomes
+  const oneOffs = [
+    { date: '2026-01-08', desc: 'VAT payment - Skattestyrelsen', amt: -42800 },
+    { date: '2026-04-08', desc: 'VAT payment - Skattestyrelsen', amt: -51200 },
+    { date: '2026-02-26', desc: 'Client invoice - Danfoss A/S', amt: 102000 },
+    { date: '2026-03-14', desc: 'Client invoice - Carlsberg Group', amt: 56000 },
+    { date: '2026-03-22', desc: 'Client invoice - Pandora A/S', amt: 95000 },
+    { date: '2026-04-18', desc: 'Client invoice - Coloplast A/S', amt: 88000 },
+    { date: '2026-04-25', desc: 'Client invoice - Vestas Wind Systems', amt: 65000 },
+    { date: '2026-02-04', desc: 'Refund - GLS Shipping', amt: 1240 },
+  ];
+
+  // Seeded pseudo-random for reproducibility
+  let seed = 42;
+  const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+
+  function fmtDate(d) {
+    return d.toISOString().slice(0, 10);
+  }
+
+  // Generate monthly recurring entries
+  for (let m = 0; m < 5; m++) {
+    fixed.forEach(f => {
+      const d = new Date(2026, m, f.day);
+      if (d >= startDate && d <= endDate) {
+        lines.push(`${fmtDate(d)},"${f.desc}",${f.amt}`);
+      }
+    });
+    recurringIncome.forEach(r => {
+      const d = new Date(2026, m, r.day);
+      if (d >= startDate && d <= endDate) {
+        const variance = 1 + (rand() - 0.5) * r.jitter * 2;
+        lines.push(`${fmtDate(d)},"${r.desc}",${Math.round(r.amt * variance)}`);
+      }
+    });
+  }
+
+  // One-offs
+  oneOffs.forEach(o => lines.push(`${o.date},"${o.desc}",${o.amt}`));
+
+  // Variable expenses scattered through period
+  for (let i = 0; i < 50; i++) {
+    const exp = variableExpenses[Math.floor(rand() * variableExpenses.length)];
+    const totalDays = Math.floor((endDate - startDate) / 86400000);
+    const dayOffset = Math.floor(rand() * totalDays);
+    const d = new Date(startDate.getTime() + dayOffset * 86400000);
+    const amt = -Math.round(exp.range[0] + rand() * (exp.range[1] - exp.range[0]));
+    lines.push(`${fmtDate(d)},"${exp.desc}",${amt}`);
+  }
+
+  return lines.join('\n');
+}
+
+let csvData = null;
+
+document.getElementById('csv-input').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(ev) {
+    csvData = ev.target.result;
+    const status = document.getElementById('csv-status');
+    status.style.display = 'flex';
+    status.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Loaded <strong style="margin:0 4px;">${file.name}</strong> · ready to analyse`;
+  };
+  reader.readAsText(file);
+});
+
+function getInputData() {
+  if (currentTab === 'csv') {
+    return csvData;
+  } else if (currentTab === 'bank') {
+    if (!bankConnected || !bankData) return null;
+    return bankData;
+  }
+  return null;
+}
+
+/* ============================================================
+   CSV PARSER
+   Handles common formats: date,description,amount
+   Tolerant of quotes, semicolons, and various date formats.
+   ============================================================ */
+function parseCSV(raw) {
+  const text = raw.replace(/\r/g, '').trim();
+  const lines = text.split('\n').filter(l => l.trim().length);
+  if (!lines.length) return [];
+
+  // Detect delimiter
+  const first = lines[0];
+  const delim = (first.split(';').length > first.split(',').length) ? ';' : ',';
+
+  // Detect header
+  const headerCandidate = first.toLowerCase();
+  const hasHeader = /date|description|amount|narration|debit|credit/.test(headerCandidate);
+  let startIdx = hasHeader ? 1 : 0;
+  let cols = { date: 0, desc: 1, amount: 2 };
+
+  if (hasHeader) {
+    const headers = splitCSVLine(first, delim).map(h => h.toLowerCase().trim());
+    headers.forEach((h, i) => {
+      if (/date/.test(h)) cols.date = i;
+      else if (/desc|narr|payee|detail|text/.test(h)) cols.desc = i;
+      else if (/amount|value/.test(h)) cols.amount = i;
+    });
+  }
+
+  const txns = [];
+  for (let i = startIdx; i < lines.length; i++) {
+    const parts = splitCSVLine(lines[i], delim);
+    if (parts.length < 2) continue;
+    const dateStr = parts[cols.date]?.trim();
+    const desc = (parts[cols.desc] || '').trim().replace(/^"|"$/g, '');
+    let amt = parts[cols.amount]?.trim() || '0';
+    // Strip currency symbols, thousands separators
+    amt = amt.replace(/[^\d.,\-]/g, '');
+    // Heuristic: if both . and , present, the last one is the decimal
+    if (amt.includes(',') && amt.includes('.')) {
+      if (amt.lastIndexOf(',') > amt.lastIndexOf('.')) {
+        amt = amt.replace(/\./g, '').replace(',', '.');
+      } else {
+        amt = amt.replace(/,/g, '');
+      }
+    } else if (amt.includes(',')) {
+      // Comma alone — likely decimal in European format
+      amt = amt.replace(',', '.');
+    }
+    const amount = parseFloat(amt);
+    if (isNaN(amount)) continue;
+    const date = parseDate(dateStr);
+    if (!date) continue;
+    txns.push({ date, desc, amount });
+  }
+  return txns.sort((a, b) => a.date - b.date);
+}
+
+function splitCSVLine(line, delim) {
+  const out = [];
+  let cur = '';
+  let inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { inQ = !inQ; continue; }
+    if (c === delim && !inQ) { out.push(cur); cur = ''; continue; }
+    cur += c;
+  }
+  out.push(cur);
+  return out;
+}
+
+function parseDate(s) {
+  if (!s) return null;
+  s = s.trim();
+  // ISO format first
+  let m = s.match(/^(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})/);
+  if (m) return new Date(+m[1], +m[2] - 1, +m[3]);
+  // DD-MM-YYYY or DD/MM/YYYY
+  m = s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})/);
+  if (m) return new Date(+m[3], +m[2] - 1, +m[1]);
+  // DD-MM-YY
+  m = s.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{2})$/);
+  if (m) return new Date(2000 + +m[3], +m[2] - 1, +m[1]);
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? null : d;
+}
+
+/* ============================================================
+   CATEGORISATION
+   Simple keyword-based classifier. Conservative — falls to "Other".
+   ============================================================ */
+const CATEGORY_RULES = [
+  { cat: 'Payroll', kw: ['salary', 'salar', 'payroll', 'wage', 'løn'] },
+  { cat: 'Tax & VAT', kw: ['vat', 'tax', 'skat', 'moms', 'skattestyrelsen', 'pension'] },
+  { cat: 'Rent', kw: ['rent', 'lease', 'leje', 'office'] },
+  { cat: 'Software', kw: ['aws', 'azure', 'google cloud', 'microsoft', 'software', 'saas', 'subscription', 'hosting', 'adobe', 'github', 'slack', 'notion', 'figma'] },
+  { cat: 'Marketing', kw: ['marketing', 'ads', 'advert', 'linkedin ads', 'google ads', 'facebook ads', 'campaign'] },
+  { cat: 'Contractors', kw: ['contractor', 'freelance', 'consultant', 'development', 'design fee'] },
+  { cat: 'Travel', kw: ['travel', 'flight', 'hotel', 'airbnb', 'taxi', 'uber', 'train', 'rejse'] },
+  { cat: 'Insurance', kw: ['insurance', 'forsikring', 'tryg', 'topdanmark'] },
+  { cat: 'Finance', kw: ['loan', 'interest', 'bank fee', 'lån', 'rente'] },
+  { cat: 'Office', kw: ['supplies', 'lyreco', 'staples', 'furniture', 'equipment'] },
+  { cat: 'Utilities', kw: ['electricity', 'water', 'internet', 'phone', 'mobile', 'el ', 'vand'] },
+  { cat: 'Meals', kw: ['restaurant', 'lunch', 'dinner', 'food', 'coffee', 'cafe', 'mad'] },
+  { cat: 'Legal', kw: ['legal', 'lawyer', 'advokat', 'bech-bruun'] },
+  { cat: 'Client revenue', kw: ['client invoice', 'invoice', 'kunde', 'faktura'] },
+  { cat: 'Refunds', kw: ['refund', 'return', 'tilbagebetaling'] },
+];
+
+function categorise(desc) {
+  const d = desc.toLowerCase();
+  for (const r of CATEGORY_RULES) {
+    if (r.kw.some(k => d.includes(k))) return r.cat;
+  }
+  return 'Other';
+}
+
+/* Counterparty extraction — strip descriptive prefixes */
+function extractCounterparty(desc) {
+  let s = desc
+    .replace(/^client invoice\s*[-–:]?\s*/i, '')
+    .replace(/^invoice\s*[-–:]?\s*/i, '')
+    .replace(/^payment to\s*/i, '')
+    .replace(/^salary payments\s*[-–:]?\s*/i, 'Salary')
+    .replace(/^payroll\s*[-–:]?\s*/i, 'Payroll')
+    .replace(/^contractor invoice\s*[-–:]?\s*/i, 'Contractor – ')
+    .replace(/^travel expenses\s*[-–:]?\s*/i, 'Travel – ')
+    .trim();
+  // Strip trailing parentheticals
+  s = s.replace(/\s*\([^)]*\)\s*$/, '');
+  return s || desc;
+}
+
+/* ============================================================
+   RECURRING DETECTION
+   Group by normalised description, check if appears in ≥2 months,
+   and amounts are within ±15% of median.
+   ============================================================ */
+function normaliseDesc(desc) {
+  return desc.toLowerCase()
+    .replace(/\d+/g, '')
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function detectRecurring(txns) {
+  const groups = {};
+  txns.forEach(t => {
+    const k = normaliseDesc(t.desc);
+    if (!k) return;
+    if (!groups[k]) groups[k] = { items: [], sample: t.desc };
+    groups[k].items.push(t);
+  });
+
+  const recurring = [];
+  Object.entries(groups).forEach(([key, g]) => {
+    if (g.items.length < 2) return;
+    const months = new Set(g.items.map(t => `${t.date.getFullYear()}-${t.date.getMonth()}`));
+    if (months.size < 2) return;
+    const amounts = g.items.map(t => Math.abs(t.amount)).sort((a, b) => a - b);
+    const median = amounts[Math.floor(amounts.length / 2)];
+    const stable = amounts.every(a => Math.abs(a - median) / median <= 0.15);
+    recurring.push({
+      key,
+      sample: g.sample,
+      count: g.items.length,
+      monthsCovered: months.size,
+      median,
+      total: g.items.reduce((s, t) => s + t.amount, 0),
+      stable,
+      isExpense: g.items[0].amount < 0,
+      items: g.items
+    });
+  });
+  return recurring;
+}
+
+function classifyFixedVariable(txns, recurring) {
+  // A txn is "fixed" if it belongs to a recurring group that's stable AND covers ≥2 months
+  const fixedKeys = new Set(recurring.filter(r => r.stable && r.monthsCovered >= 2).map(r => r.key));
+  return txns.map(t => ({
+    ...t,
+    fixed: fixedKeys.has(normaliseDesc(t.desc))
+  }));
+}
+
+/* ============================================================
+   MAIN ANALYSIS
+   ============================================================ */
+function runAnalysis() {
+  const raw = getInputData();
+  if (!raw) {
+    document.getElementById('results').innerHTML = currentTab === 'bank'
+      ? '<div class="error-box">Please select a bank and complete the authorisation flow first.</div>'
+      : '<div class="error-box">Please upload a CSV file first.</div>';
+    return;
+  }
+
+  const btn = document.getElementById('analyse-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner"></div> Crunching numbers...';
+
+  // Use a tiny timeout so the spinner renders
+  setTimeout(() => {
+    try {
+      const txns = parseCSV(raw);
+      if (!txns.length) throw new Error('No valid transactions found. Check that your file has date, description, and amount columns.');
+
+      renderResults(txns);
+    } catch (err) {
+      document.getElementById('results').innerHTML = `<hr class="divider"><div class="error-box"><strong>Could not parse data:</strong> ${err.message}</div>`;
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg> Generate overview`;
+    }
+  }, 100);
+}
+
+const fmtDKK = n => Math.round(n).toLocaleString('da-DK');
+const fmtK = n => {
+  const abs = Math.abs(n);
+  if (abs >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+  if (abs >= 1000) return (n / 1000).toFixed(0) + 'k';
+  return n.toFixed(0);
+};
+
+function renderResults(txns) {
+  const recurring = detectRecurring(txns);
+  const classified = classifyFixedVariable(txns, recurring);
+
+  const incomes = txns.filter(t => t.amount > 0);
+  const expenses = txns.filter(t => t.amount < 0);
+  const totalIn = incomes.reduce((s, t) => s + t.amount, 0);
+  const totalOut = expenses.reduce((s, t) => s + Math.abs(t.amount), 0);
+  const net = totalIn - totalOut;
+
+  const minDate = txns[0].date;
+  const maxDate = txns[txns.length - 1].date;
+  const period = `${minDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })} – ${maxDate.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}`;
+
+  document.getElementById('results').innerHTML = `
+    <hr class="divider">
+    <div class="results-header">
+      <h2 class="results-title">Transaction analytics</h2>
+      <span class="results-meta">${period} · ${txns.length} transactions</span>
+    </div>
+
+    <div class="summary-bar">
+      <div class="summary-card"><div class="summary-num">${fmtDKK(totalIn)}</div><div class="summary-lbl">Total in (DKK)</div></div>
+      <div class="summary-card"><div class="summary-num">${fmtDKK(totalOut)}</div><div class="summary-lbl">Total out (DKK)</div></div>
+      <div class="summary-card"><div class="summary-num">${fmtDKK(net)}</div><div class="summary-lbl">Net position (DKK)</div></div>
+      <div class="summary-card"><div class="summary-num">${txns.length}</div><div class="summary-lbl">Transactions</div></div>
+    </div>
+
+    <p class="chart-section-label">Overview</p>
+    <div class="charts-row">
+      <div class="chart-card">
+        <p class="chart-title">Monthly cash flow</p>
+        <p class="chart-subtitle">Revenue vs costs, grouped by month</p>
+        <div class="chart-wrap"><canvas id="c-cashflow"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <p class="chart-title">Cost breakdown</p>
+        <p class="chart-subtitle">All expenses by category</p>
+        <div class="chart-wrap"><canvas id="c-costs"></canvas></div>
+      </div>
+    </div>
+
+    <p class="chart-section-label">Top movements</p>
+    <div class="charts-row">
+      <div class="chart-card">
+        <p class="chart-title">Top 5 expenses</p>
+        <p class="chart-subtitle">Largest single outflows in period</p>
+        <div id="c-top-expenses" class="top-list"></div>
+      </div>
+      <div class="chart-card">
+        <p class="chart-title">Top 5 incomes</p>
+        <p class="chart-subtitle">Largest single inflows in period</p>
+        <div id="c-top-incomes" class="top-list"></div>
+      </div>
+    </div>
+
+    <div class="charts-row single">
+      <div class="chart-card">
+        <p class="chart-title">Largest income by client</p>
+        <p class="chart-subtitle">Who you transact with most by volume</p>
+        <div class="chart-wrap" style="height:240px;"><canvas id="c-counterparties"></canvas></div>
+      </div>
+    </div>
+
+    <p class="chart-section-label">Spending patterns</p>
+    <div class="charts-row">
+      <div class="chart-card">
+        <p class="chart-title">Fixed vs variable expenses</p>
+        <p class="chart-subtitle">Auto-detected from recurrence patterns</p>
+        <div class="chart-wrap"><canvas id="c-fixed-var"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <p class="chart-title">Day-of-week spending</p>
+        <p class="chart-subtitle">Average expense per weekday</p>
+        <div id="c-dow"></div>
+      </div>
+    </div>
+
+    <p class="chart-section-label">Time patterns</p>
+    <div class="charts-row single">
+      <div class="chart-card">
+        <p class="chart-title">Week-by-week expenses</p>
+        <p class="chart-subtitle">Total outflows per ISO week</p>
+        <div class="chart-wrap" style="height:200px;"><canvas id="c-weekly"></canvas></div>
+      </div>
+    </div>
+
+    <div class="charts-row single">
+      <div class="chart-card">
+        <p class="chart-title">Running cash balance</p>
+        <p class="chart-subtitle">Cumulative position over time — actuals plus 30-day forecast</p>
+        <div class="chart-wrap" style="height:240px;"><canvas id="c-balance"></canvas></div>
+        <div class="forecast-row" id="c-forecast-stats"></div>
+      </div>
+    </div>
+
+    <div class="charts-row single">
+      <div class="chart-card">
+        <p class="chart-title">Daily activity heatmap</p>
+        <p class="chart-subtitle">Each cell is a day; darker shades indicate higher total spend</p>
+        <div class="chart-wrap" style="height:auto; padding:8px 0;">
+          <div id="c-heatmap"></div>
+          <div class="heatmap-legend">
+            <span>Less</span>
+            <div class="heatmap-legend-cell" style="background:var(--paper-2)"></div>
+            <div class="heatmap-legend-cell" style="background:#e8d5b8"></div>
+            <div class="heatmap-legend-cell" style="background:#d6b88a"></div>
+            <div class="heatmap-legend-cell" style="background:#b87333"></div>
+            <div class="heatmap-legend-cell" style="background:#7a4a1e"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="chart-section-label">Recurring transactions</p>
+    <div class="charts-row single">
+      <div class="chart-card">
+        <p class="chart-title">Detected recurring payments</p>
+        <p class="chart-subtitle">Transactions that repeat across ≥2 months with stable amounts</p>
+        <div id="c-recurring" class="recurring-list"></div>
+      </div>
+    </div>
+  `;
+
+  // Defer chart rendering so DOM is laid out
+  setTimeout(() => {
+    drawMonthlyCashflow(txns);
+    drawCostsDoughnut(expenses);
+    drawTopExpenses(expenses);
+    drawTopIncomes(incomes);
+    drawCounterparties(txns);
+    drawFixedVar(classified);
+    drawDayOfWeek(expenses);
+    drawWeekly(expenses);
+    drawBalance(txns);
+    drawHeatmap(expenses);
+    drawRecurring(recurring);
+  }, 30);
+}
+
+/* ============================================================
+   CHART RENDERERS
+   ============================================================ */
+const PALETTE = ['#1a4f3a', '#2d7a56', '#b87333', '#1e3a5f', '#3d2060', '#7a2020', '#2c6e6e', '#7a7870', '#d4ede2', '#dce8f5'];
+
+const baseChartOpts = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 10 } },
+    tooltip: {
+      backgroundColor: '#0f0e0c',
+      titleFont: { family: 'DM Sans', size: 12 },
+      bodyFont: { family: 'DM Sans', size: 12 },
+      padding: 10,
+      cornerRadius: 4
+    }
+  }
+};
+
+function drawMonthlyCashflow(txns) {
+  const months = {};
+  txns.forEach(t => {
+    const k = `${t.date.getFullYear()}-${String(t.date.getMonth() + 1).padStart(2, '0')}`;
+    if (!months[k]) months[k] = { rev: 0, cost: 0 };
+    if (t.amount > 0) months[k].rev += t.amount;
+    else months[k].cost += Math.abs(t.amount);
+  });
+  const labels = Object.keys(months).sort();
+  const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const display = labels.map(l => monthNames[parseInt(l.split('-')[1]) - 1]);
+  new Chart(document.getElementById('c-cashflow'), {
+    type: 'bar',
+    data: {
+      labels: display,
+      datasets: [
+        { label: 'Revenue', data: labels.map(l => months[l].rev), backgroundColor: '#d4ede2', borderColor: '#1a4f3a', borderWidth: 1.5, borderRadius: 3 },
+        { label: 'Costs', data: labels.map(l => months[l].cost), backgroundColor: '#f5e6d3', borderColor: '#b87333', borderWidth: 1.5, borderRadius: 3 }
+      ]
+    },
+    options: {
+      ...baseChartOpts,
+      plugins: { ...baseChartOpts.plugins, legend: { position: 'bottom', labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 12 } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } },
+        y: { grid: { color: '#e5e1d8' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => fmtK(v) } }
+      }
+    }
+  });
+}
+
+function drawCostsDoughnut(expenses) {
+  const byCat = {};
+  expenses.forEach(t => {
+    const c = categorise(t.desc);
+    byCat[c] = (byCat[c] || 0) + Math.abs(t.amount);
+  });
+  const entries = Object.entries(byCat).sort((a, b) => b[1] - a[1]);
+  new Chart(document.getElementById('c-costs'), {
+    type: 'doughnut',
+    data: {
+      labels: entries.map(e => e[0]),
+      datasets: [{
+        data: entries.map(e => e[1]),
+        backgroundColor: PALETTE,
+        borderWidth: 0,
+        hoverOffset: 4
+      }]
+    },
+    options: {
+      ...baseChartOpts,
+      cutout: '62%',
+      plugins: {
+        ...baseChartOpts.plugins,
+        legend: { position: 'right', labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 8 } },
+        tooltip: { ...baseChartOpts.plugins.tooltip, callbacks: { label: c => `${c.label}: ${fmtDKK(c.parsed)} DKK` } }
+      }
+    }
+  });
+}
+
+function drawTopList(containerId, items, type) {
+  const max = Math.max(...items.map(i => Math.abs(i.amount)));
+  const html = items.map((t, i) => `
+    <div class="top-item">
+      <div class="top-rank">${i + 1}</div>
+      <div class="top-bar-container">
+        <div class="top-bar ${type}" style="width: ${(Math.abs(t.amount) / max * 100).toFixed(1)}%;"></div>
+        <div class="top-label" title="${escapeHtml(t.desc)}">${escapeHtml(t.desc)} <span style="color:var(--ink-4); font-size:11px;">· ${t.date.toLocaleDateString('en-GB', { day:'numeric', month:'short' })}</span></div>
+      </div>
+      <div class="top-amount">${fmtDKK(Math.abs(t.amount))}</div>
+    </div>
+  `).join('');
+  document.getElementById(containerId).innerHTML = html;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+function pickTopDistinct(items, n, sortFn) {
+  const sorted = [...items].sort(sortFn);
+  const seen = new Set();
+  const out = [];
+  for (const t of sorted) {
+    const k = normaliseDesc(t.desc);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(t);
+    if (out.length >= n) break;
+  }
+  return out;
+}
+
+function drawTopExpenses(expenses) {
+  const top = pickTopDistinct(expenses, 5, (a, b) => a.amount - b.amount);
+  drawTopList('c-top-expenses', top, 'expense');
+}
+
+function drawTopIncomes(incomes) {
+  const top = pickTopDistinct(incomes, 5, (a, b) => b.amount - a.amount);
+  drawTopList('c-top-incomes', top, 'income');
+}
+
+function drawCounterparties(txns) {
+  const cp = {};
+  txns.forEach(t => {
+    const name = extractCounterparty(t.desc);
+    if (!cp[name]) cp[name] = { in: 0, out: 0, count: 0 };
+    if (t.amount > 0) cp[name].in += t.amount;
+    else cp[name].out += Math.abs(t.amount);
+    cp[name].count += 1;
+  });
+  const entries = Object.entries(cp)
+    .map(([name, v]) => ({ name, ...v, total: v.in + v.out }))
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 10);
+  new Chart(document.getElementById('c-counterparties'), {
+    type: 'bar',
+    data: {
+      labels: entries.map(e => e.name.length > 32 ? e.name.slice(0, 30) + '…' : e.name),
+      datasets: [
+        { label: 'Inflow', data: entries.map(e => e.in), backgroundColor: '#d4ede2', borderColor: '#1a4f3a', borderWidth: 1.5, borderRadius: 3, stack: 's' },
+        { label: 'Outflow', data: entries.map(e => e.out), backgroundColor: '#f5e6d3', borderColor: '#b87333', borderWidth: 1.5, borderRadius: 3, stack: 's' }
+      ]
+    },
+    options: {
+      ...baseChartOpts,
+      indexAxis: 'y',
+      plugins: {
+        ...baseChartOpts.plugins,
+        legend: { position: 'bottom', labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 12 } },
+        tooltip: { ...baseChartOpts.plugins.tooltip, callbacks: { label: c => `${c.dataset.label}: ${fmtDKK(c.parsed.x)} DKK` } }
+      },
+      scales: {
+        x: { stacked: true, grid: { color: '#e5e1d8' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => fmtK(v) } },
+        y: { stacked: true, grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
+      }
+    }
+  });
+}
+
+function drawFixedVar(classified) {
+  const expenses = classified.filter(t => t.amount < 0);
+  const totals = { fixed: 0, variable: 0 };
+  expenses.forEach(t => {
+    if (t.fixed) totals.fixed += Math.abs(t.amount);
+    else totals.variable += Math.abs(t.amount);
+  });
+
+  // Also show monthly breakdown
+  const monthly = {};
+  expenses.forEach(t => {
+    const k = `${t.date.getFullYear()}-${String(t.date.getMonth() + 1).padStart(2, '0')}`;
+    if (!monthly[k]) monthly[k] = { fixed: 0, variable: 0 };
+    if (t.fixed) monthly[k].fixed += Math.abs(t.amount);
+    else monthly[k].variable += Math.abs(t.amount);
+  });
+  const labels = Object.keys(monthly).sort();
+  const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const display = labels.map(l => monthNames[parseInt(l.split('-')[1]) - 1]);
+
+  new Chart(document.getElementById('c-fixed-var'), {
+    type: 'bar',
+    data: {
+      labels: display,
+      datasets: [
+        { label: 'Fixed', data: labels.map(l => monthly[l].fixed), backgroundColor: '#1a4f3a', borderRadius: 3, stack: 's' },
+        { label: 'Variable', data: labels.map(l => monthly[l].variable), backgroundColor: '#f5e6d3', borderColor: '#b87333', borderWidth: 1.5, borderRadius: 3, stack: 's' }
+      ]
+    },
+    options: {
+      ...baseChartOpts,
+      plugins: {
+        ...baseChartOpts.plugins,
+        legend: { position: 'bottom', labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 12 } },
+        tooltip: { ...baseChartOpts.plugins.tooltip, callbacks: { label: c => `${c.dataset.label}: ${fmtDKK(c.parsed.y)} DKK` } }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } },
+        y: { stacked: true, grid: { color: '#e5e1d8' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => fmtK(v) } }
+      }
+    }
+  });
+}
+
+function drawDayOfWeek(expenses) {
+  const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  const buckets = Array(7).fill(0).map(() => ({ sum: 0, count: 0 }));
+  expenses.forEach(t => {
+    let d = t.date.getDay(); // 0=Sun..6=Sat
+    d = (d + 6) % 7; // 0=Mon..6=Sun
+    buckets[d].sum += Math.abs(t.amount);
+    buckets[d].count += 1;
+  });
+  const avgs = buckets.map(b => b.count ? b.sum / b.count : 0);
+  const max = Math.max(...avgs, 1);
+  const html = days.map((d, i) => `
+    <div class="dow-cell" title="${buckets[i].count} transactions">
+      <div class="dow-fill" style="height: ${(avgs[i] / max * 100).toFixed(1)}%;"></div>
+      <div class="dow-content">
+        <div class="dow-day">${d}</div>
+        <div class="dow-amount">${fmtK(avgs[i])}</div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('c-dow').innerHTML = `<div class="dow-grid">${html}</div><p style="font-size:11px; color:var(--ink-3); margin-top:10px; text-align:center;">Average expense per transaction on each weekday</p>`;
+}
+
+function drawWeekly(expenses) {
+  // ISO week grouping
+  function isoWeek(d) {
+    const target = new Date(d.valueOf());
+    const dayNr = (d.getDay() + 6) % 7;
+    target.setDate(target.getDate() - dayNr + 3);
+    const firstThursday = target.valueOf();
+    target.setMonth(0, 1);
+    if (target.getDay() !== 4) target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
+    return { year: new Date(firstThursday).getFullYear(), week: 1 + Math.ceil((firstThursday - target) / (7 * 86400000)) };
+  }
+  const weeks = {};
+  expenses.forEach(t => {
+    const w = isoWeek(t.date);
+    const k = `${w.year}-W${String(w.week).padStart(2, '0')}`;
+    weeks[k] = (weeks[k] || 0) + Math.abs(t.amount);
+  });
+  const labels = Object.keys(weeks).sort();
+  new Chart(document.getElementById('c-weekly'), {
+    type: 'bar',
+    data: {
+      labels: labels.map(l => l.split('-')[1]),
+      datasets: [{
+        label: 'Weekly expenses',
+        data: labels.map(l => weeks[l]),
+        backgroundColor: '#f5e6d3',
+        borderColor: '#b87333',
+        borderWidth: 1.5,
+        borderRadius: 3
+      }]
+    },
+    options: {
+      ...baseChartOpts,
+      plugins: {
+        ...baseChartOpts.plugins,
+        legend: { display: false },
+        tooltip: { ...baseChartOpts.plugins.tooltip, callbacks: { label: c => `${fmtDKK(c.parsed.y)} DKK` } }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 10 } } },
+        y: { grid: { color: '#e5e1d8' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => fmtK(v) } }
+      }
+    }
+  });
+}
+
+function drawBalance(txns) {
+  // Build daily series
+  const minDate = txns[0].date;
+  const maxDate = txns[txns.length - 1].date;
+  const dayMs = 86400000;
+  const totalDays = Math.round((maxDate - minDate) / dayMs);
+
+  const dailyNet = {};
+  txns.forEach(t => {
+    const k = t.date.toISOString().slice(0, 10);
+    dailyNet[k] = (dailyNet[k] || 0) + t.amount;
+  });
+
+  const labels = [];
+  const balance = [];
+  let running = 0;
+  for (let i = 0; i <= totalDays; i++) {
+    const d = new Date(minDate.getTime() + i * dayMs);
+    const k = d.toISOString().slice(0, 10);
+    running += (dailyNet[k] || 0);
+    labels.push(d);
+    balance.push(running);
+  }
+
+  // Forecast: linear regression on last 30 days of running balance
+  const lookback = Math.min(30, balance.length);
+  const tail = balance.slice(-lookback);
+  let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+  for (let i = 0; i < tail.length; i++) {
+    sumX += i; sumY += tail[i]; sumXY += i * tail[i]; sumXX += i * i;
+  }
+  const n = tail.length;
+  const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX) || 0;
+  const intercept = (sumY - slope * sumX) / n;
+
+  const forecastDays = 30;
+  const forecastLabels = [];
+  const forecastVals = [];
+  // Add null padding so forecast line starts at end of actuals
+  const actuals = balance.map(v => v);
+  const padded = new Array(actuals.length - 1).fill(null);
+  padded.push(actuals[actuals.length - 1]); // join point
+  for (let i = 1; i <= forecastDays; i++) {
+    const d = new Date(maxDate.getTime() + i * dayMs);
+    forecastLabels.push(d);
+    padded.push(intercept + slope * (n - 1 + i));
+  }
+  const allLabels = labels.concat(forecastLabels);
+
+  new Chart(document.getElementById('c-balance'), {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [
+        {
+          label: 'Actual',
+          data: actuals,
+          borderColor: '#1a4f3a',
+          backgroundColor: 'rgba(26, 79, 58, 0.08)',
+          fill: true,
+          tension: 0.2,
+          pointRadius: 0,
+          borderWidth: 2
+        },
+        {
+          label: 'Forecast (30 days)',
+          data: padded,
+          borderColor: '#b87333',
+          backgroundColor: 'transparent',
+          borderDash: [4, 4],
+          fill: false,
+          tension: 0.2,
+          pointRadius: 0,
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      ...baseChartOpts,
+      plugins: {
+        ...baseChartOpts.plugins,
+        legend: { position: 'bottom', labels: { font: { family: 'DM Sans', size: 11 }, boxWidth: 10, padding: 12 } },
+        tooltip: { ...baseChartOpts.plugins.tooltip, callbacks: { label: c => `${c.dataset.label}: ${fmtDKK(c.parsed.y)} DKK`, title: items => items[0].label.toString().slice(0, 10) } }
+      },
+      scales: {
+        x: {
+          type: 'time',
+          time: { unit: 'month', tooltipFormat: 'MMM d, yyyy', displayFormats: { month: 'MMM' } },
+          grid: { display: false },
+          ticks: { font: { family: 'DM Sans', size: 10 } }
+        },
+        y: { grid: { color: '#e5e1d8' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => fmtK(v) } }
+      }
+    }
+  });
+
+  // Forecast stats
+  const projectedEnd = padded[padded.length - 1];
+  const burnPerDay = -slope; // negative slope means burning cash
+  const runway = burnPerDay > 0 ? Math.round(actuals[actuals.length - 1] / burnPerDay) : null;
+
+  document.getElementById('c-forecast-stats').innerHTML = `
+    <div class="forecast-stat">
+      <div class="forecast-num ${slope >= 0 ? 'pos' : 'neg'}">${slope >= 0 ? '+' : ''}${fmtDKK(slope)}</div>
+      <div class="forecast-lbl">Avg net per day</div>
+    </div>
+    <div class="forecast-stat">
+      <div class="forecast-num ${projectedEnd >= 0 ? 'pos' : 'neg'}">${fmtDKK(projectedEnd)}</div>
+      <div class="forecast-lbl">Projected in 30d</div>
+    </div>
+    <div class="forecast-stat">
+      <div class="forecast-num">${runway && runway > 0 ? runway + ' days' : '∞'}</div>
+      <div class="forecast-lbl">Runway at current burn</div>
+    </div>
+  `;
+}
+
+function drawHeatmap(expenses) {
+  // 53 weeks × 7 days grid
+  if (!expenses.length) return;
+  const daily = {};
+  expenses.forEach(t => {
+    const k = t.date.toISOString().slice(0, 10);
+    daily[k] = (daily[k] || 0) + Math.abs(t.amount);
+  });
+
+  const minDate = expenses[0].date;
+  const maxDate = expenses[expenses.length - 1].date;
+
+  // Anchor to start of week containing minDate
+  const start = new Date(minDate);
+  const sDow = (start.getDay() + 6) % 7;
+  start.setDate(start.getDate() - sDow);
+
+  const totalDays = Math.round((maxDate - start) / 86400000) + 7;
+  const weeks = Math.ceil(totalDays / 7);
+
+  const values = [];
+  for (let w = 0; w < weeks; w++) {
+    for (let d = 0; d < 7; d++) {
+      const date = new Date(start.getTime() + (w * 7 + d) * 86400000);
+      const k = date.toISOString().slice(0, 10);
+      values.push({ date, val: daily[k] || 0, w, d });
+    }
+  }
+
+  const allVals = values.map(v => v.val).filter(v => v > 0).sort((a, b) => a - b);
+  const q = p => allVals.length ? allVals[Math.min(allVals.length - 1, Math.floor(p * allVals.length))] : 0;
+  const thresholds = [q(0.2), q(0.4), q(0.6), q(0.8)];
+  const colors = ['#e8d5b8', '#d6b88a', '#b87333', '#7a4a1e'];
+
+  function colorFor(v) {
+    if (v <= 0) return 'var(--paper-2)';
+    for (let i = 0; i < thresholds.length; i++) {
+      if (v <= thresholds[i]) return colors[i];
+    }
+    return colors[colors.length - 1];
+  }
+
+  // Build grid: column = week, row = day-of-week
+  const days = ['Mon','','Wed','','Fri','',''];
+  let html = '<div class="heatmap" style="grid-template-columns:30px repeat(' + weeks + ', 1fr);">';
+
+  // Header row: empty corner + month labels
+  html += '<div></div>';
+  let lastMonth = -1;
+  for (let w = 0; w < weeks; w++) {
+    const date = new Date(start.getTime() + (w * 7) * 86400000);
+    const m = date.getMonth();
+    let label = '';
+    if (m !== lastMonth && date.getDate() <= 7) {
+      label = date.toLocaleString('en-GB', { month: 'short' });
+      lastMonth = m;
+    }
+    html += `<div style="font-size:9px; color:var(--ink-3); text-align:left;">${label}</div>`;
+  }
+
+  // Day rows
+  for (let d = 0; d < 7; d++) {
+    html += `<div class="heatmap-row-label">${days[d]}</div>`;
+    for (let w = 0; w < weeks; w++) {
+      const cell = values.find(v => v.w === w && v.d === d);
+      if (!cell || cell.date < minDate || cell.date > maxDate) {
+        html += '<div class="heatmap-cell" style="background:transparent;"></div>';
+      } else {
+        const title = `${cell.date.toLocaleDateString('en-GB', { day:'numeric', month:'short' })} · ${fmtDKK(cell.val)} DKK`;
+        html += `<div class="heatmap-cell" style="background:${colorFor(cell.val)};" title="${title}"></div>`;
+      }
+    }
+  }
+  html += '</div>';
+  document.getElementById('c-heatmap').innerHTML = html;
+}
+
+function drawRecurring(recurring) {
+  const sorted = [...recurring].sort((a, b) => Math.abs(b.total) - Math.abs(a.total));
+  const container = document.getElementById('c-recurring');
+  if (!sorted.length) {
+    container.innerHTML = '<p style="font-size:13px; color:var(--ink-3); padding:12px;">No recurring patterns detected. This usually means the period is too short — try a dataset spanning 2+ months.</p>';
+    return;
+  }
+  const html = sorted.slice(0, 12).map(r => {
+    const monthly = r.median;
+    const direction = r.isExpense ? 'out' : 'in';
+    const color = r.isExpense ? 'var(--amber)' : 'var(--accent)';
+    return `
+      <div class="recurring-item">
+        <div class="recurring-name">
+          <div class="recurring-dot" style="background:${color};"></div>
+          <div style="min-width:0; flex:1;">
+            <div class="recurring-text">${escapeHtml(r.sample)}</div>
+            <div class="recurring-meta">${r.count}× across ${r.monthsCovered} months${r.stable ? ' · stable amount' : ' · variable amount'}</div>
+          </div>
+        </div>
+        <div class="recurring-amount" style="color:${color};">${direction === 'in' ? '+' : '−'}${fmtDKK(monthly)}/mo</div>
+      </div>
+    `;
+  }).join('');
+  container.innerHTML = html;
+}
+</script>
+
+</body>
+</html>

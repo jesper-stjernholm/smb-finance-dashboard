@@ -1,0 +1,501 @@
+date,description,amount,category
+2026-01-01,Office rent - Nordhavn,-14500,Rent
+2026-01-01,Electricity and district heating,-3200,Utilities
+2026-01-01,Salesforce CRM monthly,-4800,Software
+2026-01-01,Client invoice - TDC Erhverv,44000,Revenue
+2026-01-01,Client invoice - DSB,37000,Revenue
+2026-01-01,Client invoice - Ørsted A/S,72000,Revenue
+2026-01-01,Client invoice - Copenhagen Airport,93000,Revenue
+2026-01-01,Patent filing fee,-14200,Legal
+2026-01-01,Accountant fees - Deloitte,-11800,Professional Services
+2026-01-02,Salary payments - 5 employees,-78000,Payroll
+2026-01-02,Microsoft 365 Business Premium,-2800,Software
+2026-01-02,Client invoice - LEGO A/S,104000,Revenue
+2026-01-02,Client invoice - ISS A/S,54000,Revenue
+2026-01-02,Client invoice - Ørsted A/S,120000,Revenue
+2026-01-02,Client invoice - ISS A/S,52000,Revenue
+2026-01-03,Payroll taxes and pension contributions,-23400,Payroll
+2026-01-03,Slack Business+ subscription,-900,Software
+2026-01-04,Pension provider - Danica Pension,-12400,Payroll
+2026-01-04,Notion Teams subscription,-600,Software
+2026-01-05,Mobile and internet - business,-2100,Utilities
+2026-01-05,Cleaning service - CleanDK,-4200,Office
+2026-01-05,Client invoice - Nordea Danmark,62000,Revenue
+2026-01-05,Client invoice - Arla Foods,33000,Revenue
+2026-01-05,Client invoice - Copenhagen Airport,44000,Revenue
+2026-01-05,Courier and postage,-700,Office
+2026-01-05,Corporation tax prepayment - Skattestyrelsen,-33200,Tax
+2026-01-05,Accountant fees - Deloitte,-12400,Professional Services
+2026-01-06,Loan repayment - Danske Bank,-18500,Financing
+2026-01-06,Canteen and catering service,-6800,Entertainment
+2026-01-06,Office supplies,-4600,Office
+2026-01-06,Market research report,-8200,Research
+2026-01-07,Travel - London conference,-12500,Travel
+2026-01-07,Office supplies,-4800,Office
+2026-01-08,Client invoice - Maersk A/S,106000,Revenue
+2026-01-08,Client invoice - William Demant,42000,Revenue
+2026-01-08,Client invoice - Ørsted A/S,100000,Revenue
+2026-01-08,Client invoice - TDC Erhverv,33000,Revenue
+2026-01-08,Client invoice - Arla Foods,52000,Revenue
+2026-01-08,Client invoice - Ørsted A/S,127000,Revenue
+2026-01-08,Domain and hosting - one.com,-800,Software
+2026-01-08,VAT payment - Skattestyrelsen,-45100,VAT
+2026-01-09,Client invoice - LEGO A/S,143000,Revenue
+2026-01-09,Client invoice - Nordea Danmark,45000,Revenue
+2026-01-09,Client invoice - Ørsted A/S,80000,Revenue
+2026-01-09,Client invoice - TDC Erhverv,59000,Revenue
+2026-01-09,Travel - Oslo partner meetings,-9700,Travel
+2026-01-09,Office furniture - standing desks,-12500,Office
+2026-01-12,Client invoice - Danske Bank,58000,Revenue
+2026-01-12,Client invoice - Falck A/S,60000,Revenue
+2026-01-12,Client invoice - DSB,38000,Revenue
+2026-01-12,Client invoice - Carlsberg Group,51000,Revenue
+2026-01-12,Print materials and branding,-4800,Marketing
+2026-01-12,LinkedIn ads campaign,-9700,Marketing
+2026-01-13,Client invoice - Arla Foods,52000,Revenue
+2026-01-13,Client invoice - Arla Foods,55000,Revenue
+2026-01-13,Client invoice - Lundbeck A/S,62000,Revenue
+2026-01-13,Client invoice - Danske Bank,43000,Revenue
+2026-01-13,Client invoice - Coloplast A/S,35000,Revenue
+2026-01-13,Client invoice - LEGO A/S,147000,Revenue
+2026-01-14,Client invoice - Grundfos A/S,76000,Revenue
+2026-01-14,Client invoice - DSB,41000,Revenue
+2026-01-14,Client invoice - Carlsberg Group,72000,Revenue
+2026-01-14,Client invoice - GN Audio A/S,56000,Revenue
+2026-01-14,Conference tickets - Web Summit,-11700,Education
+2026-01-14,VAT payment - Skattestyrelsen,-36100,VAT
+2026-01-15,Contractor invoice - data analysis,-14400,Contractors
+2026-01-15,Hardware - MacBook Pro,-20000,Equipment
+2026-01-15,PR agency retainer - Monday Kommunikation,-18800,Marketing
+2026-01-16,Client invoice - Lundbeck A/S,57000,Revenue
+2026-01-16,Client invoice - Lundbeck A/S,81000,Revenue
+2026-01-16,Client invoice - TDC Erhverv,43000,Revenue
+2026-01-16,Client invoice - Grundfos A/S,59000,Revenue
+2026-01-16,Client invoice - ISS A/S,84000,Revenue
+2026-01-16,Accountant fees - Deloitte,-11300,Professional Services
+2026-01-16,Team lunch,-3700,Entertainment
+2026-01-16,Friday bar and social events,-3000,Entertainment
+2026-01-19,Client invoice - Pandora A/S,83000,Revenue
+2026-01-19,Client invoice - ISS A/S,51000,Revenue
+2026-01-19,Client invoice - William Demant,53000,Revenue
+2026-01-19,Client invoice - ISS A/S,67000,Revenue
+2026-01-19,Client invoice - GN Audio A/S,84000,Revenue
+2026-01-20,Client invoice - ISS A/S,66000,Revenue
+2026-01-20,Client invoice - Novo Nordisk A/S,59000,Revenue
+2026-01-20,Client invoice - Tryg Forsikring,36000,Revenue
+2026-01-20,Client invoice - Novo Nordisk A/S,111000,Revenue
+2026-01-20,Client invoice - Grundfos A/S,78000,Revenue
+2026-01-21,Legal fees - Plesner Advokatpartnerselskab,-15700,Professional Services
+2026-01-21,Insurance - Topdanmark erhverv,-20900,Insurance
+2026-01-21,Freelancer - video production,-14700,Contractors
+2026-01-22,Client invoice - Pandora A/S,88000,Revenue
+2026-01-22,Client invoice - Novo Nordisk A/S,58000,Revenue
+2026-01-22,Client invoice - Grundfos A/S,39000,Revenue
+2026-01-22,Client invoice - SimCorp A/S,48000,Revenue
+2026-01-22,Client invoice - Vestas Wind Systems,64000,Revenue
+2026-01-22,Accountant fees - Deloitte,-7700,Professional Services
+2026-01-22,Technical training - AWS certification,-10100,Education
+2026-01-22,Office furniture - standing desks,-14700,Office
+2026-01-23,Client invoice - Ørsted A/S,118000,Revenue
+2026-01-23,Client invoice - Rockwool International,51000,Revenue
+2026-01-23,Client invoice - Lundbeck A/S,74000,Revenue
+2026-01-23,Client invoice - Rockwool International,38000,Revenue
+2026-01-23,Figma organization license,-4800,Software
+2026-01-23,Freelancer - content writing,-9400,Contractors
+2026-01-26,Freelancer - content writing,-9700,Contractors
+2026-01-26,Domain and hosting - one.com,-1200,Software
+2026-01-26,Office supplies,-2200,Office
+2026-01-27,Client invoice - Tryg Forsikring,24000,Revenue
+2026-01-27,Client invoice - Carlsberg Group,49000,Revenue
+2026-01-27,Client invoice - Nordea Danmark,46000,Revenue
+2026-01-27,Client invoice - Danfoss A/S,89000,Revenue
+2026-01-27,Client invoice - GN Audio A/S,36000,Revenue
+2026-01-27,Client invoice - SimCorp A/S,79000,Revenue
+2026-01-27,Insurance - Topdanmark erhverv,-15600,Insurance
+2026-01-27,Office supplies,-2600,Office
+2026-01-27,Subscription - Statista research,-2400,Research
+2026-01-28,Client invoice - Danfoss A/S,80000,Revenue
+2026-01-28,Client invoice - DSB,57000,Revenue
+2026-01-28,Client invoice - Falck A/S,47000,Revenue
+2026-01-28,Contractor invoice - UX design,-22600,Contractors
+2026-01-28,HR consulting,-10400,Professional Services
+2026-01-28,Travel - London conference,-24400,Travel
+2026-01-29,Client invoice - ISS A/S,64000,Revenue
+2026-01-29,Client invoice - Maersk A/S,123000,Revenue
+2026-01-29,Client invoice - Pandora A/S,90000,Revenue
+2026-01-29,Client invoice - Danske Bank,49000,Revenue
+2026-01-29,Client invoice - Rockwool International,49000,Revenue
+2026-01-29,Travel - London conference,-15200,Travel
+2026-01-29,Travel - Berlin tech summit,-9900,Travel
+2026-01-30,Client invoice - Falck A/S,61000,Revenue
+2026-01-30,Client invoice - William Demant,61000,Revenue
+2026-01-30,Client invoice - Coloplast A/S,55000,Revenue
+2026-02-01,Office rent - Nordhavn,-14500,Rent
+2026-02-01,Electricity and district heating,-3200,Utilities
+2026-02-01,Salesforce CRM monthly,-4800,Software
+2026-02-02,Salary payments - 5 employees,-78000,Payroll
+2026-02-02,Microsoft 365 Business Premium,-2800,Software
+2026-02-02,Client invoice - Danfoss A/S,97000,Revenue
+2026-02-02,Client invoice - Vestas Wind Systems,95000,Revenue
+2026-02-02,Client invoice - Danfoss A/S,99000,Revenue
+2026-02-02,Client invoice - William Demant,64000,Revenue
+2026-02-02,Travel - London conference,-15700,Travel
+2026-02-02,SEO agency - Obsidian Digital,-14600,Marketing
+2026-02-03,Payroll taxes and pension contributions,-23400,Payroll
+2026-02-03,Slack Business+ subscription,-900,Software
+2026-02-03,Client invoice - DSB,46000,Revenue
+2026-02-03,Client invoice - ISS A/S,91000,Revenue
+2026-02-03,Client invoice - Carlsberg Group,43000,Revenue
+2026-02-03,Office supplies,-2800,Office
+2026-02-03,VAT payment - Skattestyrelsen,-51100,VAT
+2026-02-04,Pension provider - Danica Pension,-12400,Payroll
+2026-02-04,Notion Teams subscription,-600,Software
+2026-02-04,Client invoice - SimCorp A/S,94000,Revenue
+2026-02-04,Client invoice - Novo Nordisk A/S,83000,Revenue
+2026-02-04,Client invoice - Coloplast A/S,41000,Revenue
+2026-02-05,Mobile and internet - business,-2100,Utilities
+2026-02-05,Cleaning service - CleanDK,-4200,Office
+2026-02-06,Loan repayment - Danske Bank,-18500,Financing
+2026-02-06,Canteen and catering service,-6800,Entertainment
+2026-02-06,Client invoice - Nordea Danmark,69000,Revenue
+2026-02-06,Client invoice - Maersk A/S,57000,Revenue
+2026-02-06,Client invoice - LEGO A/S,75000,Revenue
+2026-02-06,Team lunch,-4500,Entertainment
+2026-02-06,Contractor invoice - backend development,-37200,Contractors
+2026-02-06,Figma organization license,-4800,Software
+2026-02-09,Client invoice - Falck A/S,47000,Revenue
+2026-02-09,Client invoice - GN Audio A/S,61000,Revenue
+2026-02-09,Client invoice - Lundbeck A/S,71000,Revenue
+2026-02-09,Office furniture - standing desks,-21400,Office
+2026-02-09,Insurance - Topdanmark erhverv,-10300,Insurance
+2026-02-10,Client invoice - Coloplast A/S,86000,Revenue
+2026-02-10,Client invoice - SimCorp A/S,56000,Revenue
+2026-02-10,Client invoice - Lundbeck A/S,39000,Revenue
+2026-02-10,Client invoice - SimCorp A/S,47000,Revenue
+2026-02-10,Client invoice - Pandora A/S,49000,Revenue
+2026-02-11,Client invoice - Vestas Wind Systems,94000,Revenue
+2026-02-11,Client invoice - Copenhagen Airport,67000,Revenue
+2026-02-11,Client invoice - SimCorp A/S,99000,Revenue
+2026-02-11,Client invoice - Ørsted A/S,61000,Revenue
+2026-02-11,Client invoice - William Demant,39000,Revenue
+2026-02-11,Contractor invoice - data analysis,-10100,Contractors
+2026-02-11,Subscription - Statista research,-2400,Research
+2026-02-11,Team lunch,-5200,Entertainment
+2026-02-12,Client invoice - LEGO A/S,119000,Revenue
+2026-02-12,Client invoice - Coloplast A/S,47000,Revenue
+2026-02-12,Client invoice - GN Audio A/S,72000,Revenue
+2026-02-12,Recruitment fee - Compass Human Resources,-32300,Professional Services
+2026-02-12,Office furniture - standing desks,-11400,Office
+2026-02-13,Client invoice - Coloplast A/S,86000,Revenue
+2026-02-13,Client invoice - ISS A/S,57000,Revenue
+2026-02-13,Client invoice - Coloplast A/S,74000,Revenue
+2026-02-13,Client invoice - Tryg Forsikring,56000,Revenue
+2026-02-16,Bank fees - Danske Bank Erhverv,-1100,Banking
+2026-02-16,Insurance - Topdanmark erhverv,-19100,Insurance
+2026-02-17,Client invoice - DSB,38000,Revenue
+2026-02-17,Client invoice - Danfoss A/S,97000,Revenue
+2026-02-17,Client invoice - SimCorp A/S,86000,Revenue
+2026-02-17,Domain and hosting - one.com,-500,Software
+2026-02-17,Contractor invoice - backend development,-40300,Contractors
+2026-02-18,Client invoice - Vestas Wind Systems,80000,Revenue
+2026-02-18,Client invoice - Grundfos A/S,46000,Revenue
+2026-02-18,Client invoice - Copenhagen Airport,76000,Revenue
+2026-02-18,Client invoice - Novo Nordisk A/S,118000,Revenue
+2026-02-18,LinkedIn Learning team license,-4700,Education
+2026-02-18,Office supplies,-4000,Office
+2026-02-19,Client invoice - Tryg Forsikring,40000,Revenue
+2026-02-19,Client invoice - Pandora A/S,69000,Revenue
+2026-02-19,Client invoice - Vestas Wind Systems,98000,Revenue
+2026-02-19,Client invoice - Novo Nordisk A/S,90000,Revenue
+2026-02-19,Client invoice - DSB,31000,Revenue
+2026-02-19,Google Ads,-8700,Marketing
+2026-02-19,Team offsite - Bornholm,-27600,Entertainment
+2026-02-19,AWS hosting and cloud infrastructure,-6900,Software
+2026-02-20,Client invoice - Novo Nordisk A/S,48000,Revenue
+2026-02-20,Client invoice - Coloplast A/S,46000,Revenue
+2026-02-20,Client invoice - DSB,43000,Revenue
+2026-02-20,LinkedIn ads campaign,-19600,Marketing
+2026-02-20,Travel - London conference,-23100,Travel
+2026-02-23,Client invoice - Nordea Danmark,69000,Revenue
+2026-02-23,Client invoice - Danske Bank,62000,Revenue
+2026-02-23,Client invoice - Falck A/S,64000,Revenue
+2026-02-23,Client invoice - William Demant,53000,Revenue
+2026-02-23,Client invoice - Danfoss A/S,93000,Revenue
+2026-02-23,Figma organization license,-4800,Software
+2026-02-23,Contractor invoice - data analysis,-8400,Contractors
+2026-02-24,Client invoice - TDC Erhverv,39000,Revenue
+2026-02-24,Client invoice - Copenhagen Airport,83000,Revenue
+2026-02-24,Client invoice - TDC Erhverv,72000,Revenue
+2026-02-24,Client invoice - DSB,35000,Revenue
+2026-02-24,Client invoice - Bestseller A/S,57000,Revenue
+2026-02-24,Contractor invoice - data analysis,-17900,Contractors
+2026-02-24,Conference tickets - Web Summit,-9500,Education
+2026-02-24,Google Ads,-7800,Marketing
+2026-02-25,Client invoice - Lundbeck A/S,89000,Revenue
+2026-02-25,Client invoice - Falck A/S,49000,Revenue
+2026-02-25,Client invoice - Tryg Forsikring,39000,Revenue
+2026-02-25,Client invoice - TDC Erhverv,77000,Revenue
+2026-02-25,Client invoice - Danske Bank,44000,Revenue
+2026-02-25,Client invoice - Grundfos A/S,60000,Revenue
+2026-02-26,Client invoice - Bestseller A/S,60000,Revenue
+2026-02-26,Client invoice - Danfoss A/S,86000,Revenue
+2026-02-26,Client invoice - Maersk A/S,54000,Revenue
+2026-02-26,Client invoice - Vestas Wind Systems,74000,Revenue
+2026-02-26,Client invoice - Maersk A/S,68000,Revenue
+2026-02-27,Client invoice - Novo Nordisk A/S,60000,Revenue
+2026-02-27,Client invoice - Danfoss A/S,61000,Revenue
+2026-02-27,Client invoice - Pandora A/S,83000,Revenue
+2026-02-27,LinkedIn ads campaign,-19500,Marketing
+2026-02-27,Hardware - MacBook Pro,-19100,Equipment
+2026-03-01,Office rent - Nordhavn,-14500,Rent
+2026-03-01,Electricity and district heating,-3200,Utilities
+2026-03-01,Salesforce CRM monthly,-4800,Software
+2026-03-02,Salary payments - 5 employees,-78000,Payroll
+2026-03-02,Microsoft 365 Business Premium,-2800,Software
+2026-03-02,Client invoice - Coloplast A/S,78000,Revenue
+2026-03-02,Client invoice - Lundbeck A/S,45000,Revenue
+2026-03-02,Client invoice - Grundfos A/S,46000,Revenue
+2026-03-02,Client invoice - Falck A/S,55000,Revenue
+2026-03-02,Client invoice - Arla Foods,71000,Revenue
+2026-03-02,Bank fees - Danske Bank Erhverv,-1200,Banking
+2026-03-02,Adobe Creative Cloud team,-3600,Software
+2026-03-02,Figma organization license,-4800,Software
+2026-03-03,Payroll taxes and pension contributions,-23400,Payroll
+2026-03-03,Slack Business+ subscription,-900,Software
+2026-03-03,Client invoice - Copenhagen Airport,104000,Revenue
+2026-03-03,Client invoice - Arla Foods,39000,Revenue
+2026-03-03,Client invoice - Grundfos A/S,73000,Revenue
+2026-03-03,VAT payment - Skattestyrelsen,-44900,VAT
+2026-03-03,Print materials and branding,-4600,Marketing
+2026-03-03,Domain and hosting - one.com,-700,Software
+2026-03-04,Pension provider - Danica Pension,-12400,Payroll
+2026-03-04,Notion Teams subscription,-600,Software
+2026-03-04,Client invoice - Pandora A/S,62000,Revenue
+2026-03-04,Client invoice - Tryg Forsikring,32000,Revenue
+2026-03-04,Client invoice - Tryg Forsikring,38000,Revenue
+2026-03-04,Client invoice - TDC Erhverv,55000,Revenue
+2026-03-04,HR consulting,-15100,Professional Services
+2026-03-04,Recruitment fee - Compass Human Resources,-29400,Professional Services
+2026-03-05,Mobile and internet - business,-2100,Utilities
+2026-03-05,Cleaning service - CleanDK,-4200,Office
+2026-03-05,Client invoice - GN Audio A/S,82000,Revenue
+2026-03-05,Client invoice - Arla Foods,68000,Revenue
+2026-03-05,Client invoice - Maersk A/S,53000,Revenue
+2026-03-05,Client invoice - Lundbeck A/S,44000,Revenue
+2026-03-05,Client invoice - Lundbeck A/S,68000,Revenue
+2026-03-05,Accountant fees - Deloitte,-7600,Professional Services
+2026-03-05,AWS hosting and cloud infrastructure,-5400,Software
+2026-03-06,Loan repayment - Danske Bank,-18500,Financing
+2026-03-06,Canteen and catering service,-6800,Entertainment
+2026-03-06,Client invoice - GN Audio A/S,52000,Revenue
+2026-03-06,Client invoice - Rockwool International,46000,Revenue
+2026-03-06,Client invoice - Coloplast A/S,85000,Revenue
+2026-03-06,Client invoice - Danske Bank,81000,Revenue
+2026-03-06,Patent filing fee,-9400,Legal
+2026-03-06,Team offsite - Bornholm,-18600,Entertainment
+2026-03-09,Team lunch,-5700,Entertainment
+2026-03-09,Contractor invoice - backend development,-40600,Contractors
+2026-03-09,Adobe Creative Cloud team,-3600,Software
+2026-03-10,Client invoice - Pandora A/S,63000,Revenue
+2026-03-10,Client invoice - Ørsted A/S,66000,Revenue
+2026-03-10,Client invoice - Rockwool International,47000,Revenue
+2026-03-10,Client invoice - Rockwool International,62000,Revenue
+2026-03-10,Client invoice - ISS A/S,55000,Revenue
+2026-03-11,Client invoice - Rockwool International,57000,Revenue
+2026-03-11,Client invoice - Coloplast A/S,71000,Revenue
+2026-03-11,Client invoice - LEGO A/S,126000,Revenue
+2026-03-11,Client invoice - Coloplast A/S,79000,Revenue
+2026-03-11,Client invoice - Tryg Forsikring,43000,Revenue
+2026-03-11,Client invoice - Novo Nordisk A/S,47000,Revenue
+2026-03-11,Travel - Oslo partner meetings,-7600,Travel
+2026-03-11,Recruitment fee - Compass Human Resources,-24300,Professional Services
+2026-03-11,Contractor invoice - data analysis,-14800,Contractors
+2026-03-12,Client invoice - LEGO A/S,77000,Revenue
+2026-03-12,Client invoice - Danske Bank,59000,Revenue
+2026-03-12,Client invoice - Rockwool International,33000,Revenue
+2026-03-12,Client invoice - GN Audio A/S,71000,Revenue
+2026-03-12,Client invoice - Grundfos A/S,37000,Revenue
+2026-03-12,Recruitment fee - Compass Human Resources,-32100,Professional Services
+2026-03-12,Domain and hosting - one.com,-700,Software
+2026-03-12,Contractor invoice - backend development,-26900,Contractors
+2026-03-13,Client invoice - Arla Foods,58000,Revenue
+2026-03-13,Client invoice - Danske Bank,72000,Revenue
+2026-03-13,Client invoice - Arla Foods,54000,Revenue
+2026-03-13,Client invoice - SimCorp A/S,92000,Revenue
+2026-03-13,Client invoice - Copenhagen Airport,57000,Revenue
+2026-03-13,Client invoice - Pandora A/S,90000,Revenue
+2026-03-13,Adobe Creative Cloud team,-3600,Software
+2026-03-13,LinkedIn ads campaign,-17900,Marketing
+2026-03-16,Client invoice - SimCorp A/S,59000,Revenue
+2026-03-16,Client invoice - TDC Erhverv,75000,Revenue
+2026-03-16,Client invoice - Grundfos A/S,52000,Revenue
+2026-03-16,Client invoice - Lundbeck A/S,47000,Revenue
+2026-03-16,Hardware - MacBook Pro,-18100,Equipment
+2026-03-16,Freelancer - video production,-14500,Contractors
+2026-03-17,Client invoice - DSB,48000,Revenue
+2026-03-17,Client invoice - Tryg Forsikring,32000,Revenue
+2026-03-17,Client invoice - Copenhagen Airport,82000,Revenue
+2026-03-17,Client invoice - Lundbeck A/S,86000,Revenue
+2026-03-17,Google Ads,-10400,Marketing
+2026-03-17,HR consulting,-14100,Professional Services
+2026-03-17,Contractor invoice - data analysis,-14300,Contractors
+2026-03-18,Travel - Berlin tech summit,-13800,Travel
+2026-03-18,Contractor invoice - data analysis,-12500,Contractors
+2026-03-19,Client invoice - William Demant,59000,Revenue
+2026-03-19,Client invoice - Falck A/S,63000,Revenue
+2026-03-19,Client invoice - Vestas Wind Systems,42000,Revenue
+2026-03-19,Client invoice - Novo Nordisk A/S,72000,Revenue
+2026-03-19,VAT payment - Skattestyrelsen,-42300,VAT
+2026-03-19,Bank fees - Danske Bank Erhverv,-1500,Banking
+2026-03-20,Client invoice - Pandora A/S,87000,Revenue
+2026-03-20,Client invoice - Vestas Wind Systems,76000,Revenue
+2026-03-20,Client invoice - DSB,31000,Revenue
+2026-03-23,Client invoice - Danske Bank,67000,Revenue
+2026-03-23,Client invoice - Grundfos A/S,73000,Revenue
+2026-03-23,Client invoice - Novo Nordisk A/S,143000,Revenue
+2026-03-23,Client invoice - GN Audio A/S,38000,Revenue
+2026-03-23,AWS hosting and cloud infrastructure,-7100,Software
+2026-03-23,Technical training - AWS certification,-9700,Education
+2026-03-24,Hardware - MacBook Pro,-21600,Equipment
+2026-03-24,Friday bar and social events,-3900,Entertainment
+2026-03-25,Client invoice - Danfoss A/S,84000,Revenue
+2026-03-25,Client invoice - LEGO A/S,123000,Revenue
+2026-03-25,Client invoice - Pandora A/S,83000,Revenue
+2026-03-25,Office furniture - standing desks,-21100,Office
+2026-03-25,Adobe Creative Cloud team,-3600,Software
+2026-03-25,Travel - client meetings Copenhagen,-4900,Travel
+2026-03-26,Client invoice - TDC Erhverv,52000,Revenue
+2026-03-26,Client invoice - Nordea Danmark,42000,Revenue
+2026-03-26,Client invoice - Danske Bank,49000,Revenue
+2026-03-26,Client invoice - Falck A/S,30000,Revenue
+2026-03-26,Client invoice - Rockwool International,43000,Revenue
+2026-03-26,Office supplies,-5100,Office
+2026-03-26,HR consulting,-11800,Professional Services
+2026-03-27,Client invoice - LEGO A/S,106000,Revenue
+2026-03-27,Client invoice - Coloplast A/S,49000,Revenue
+2026-03-27,Client invoice - LEGO A/S,76000,Revenue
+2026-03-27,Client invoice - Novo Nordisk A/S,64000,Revenue
+2026-03-27,Client invoice - Danske Bank,67000,Revenue
+2026-03-27,Client invoice - Bestseller A/S,46000,Revenue
+2026-03-27,Domain and hosting - one.com,-1000,Software
+2026-03-27,Domain and hosting - one.com,-700,Software
+2026-03-27,Team offsite - Bornholm,-32500,Entertainment
+2026-03-30,Client invoice - Tryg Forsikring,49000,Revenue
+2026-03-30,Client invoice - Danske Bank,80000,Revenue
+2026-03-30,Client invoice - SimCorp A/S,63000,Revenue
+2026-03-31,Client invoice - Rockwool International,52000,Revenue
+2026-03-31,Client invoice - Danfoss A/S,97000,Revenue
+2026-03-31,Client invoice - Lundbeck A/S,73000,Revenue
+2026-03-31,Contractor invoice - data analysis,-9100,Contractors
+2026-03-31,HR consulting,-16000,Professional Services
+2026-04-01,Office rent - Nordhavn,-14500,Rent
+2026-04-01,Electricity and district heating,-3200,Utilities
+2026-04-01,Salesforce CRM monthly,-4800,Software
+2026-04-01,Client invoice - Coloplast A/S,48000,Revenue
+2026-04-01,Client invoice - Rockwool International,53000,Revenue
+2026-04-01,Client invoice - DSB,43000,Revenue
+2026-04-01,Client invoice - Maersk A/S,75000,Revenue
+2026-04-01,Client invoice - Vestas Wind Systems,84000,Revenue
+2026-04-01,Client invoice - Vestas Wind Systems,43000,Revenue
+2026-04-01,Legal fees - Plesner Advokatpartnerselskab,-15700,Professional Services
+2026-04-01,VAT payment - Skattestyrelsen,-49300,VAT
+2026-04-01,Print materials and branding,-3000,Marketing
+2026-04-02,Salary payments - 5 employees,-78000,Payroll
+2026-04-02,Microsoft 365 Business Premium,-2800,Software
+2026-04-02,Market research report,-14200,Research
+2026-04-02,Recruitment fee - Compass Human Resources,-38300,Professional Services
+2026-04-02,Figma organization license,-4800,Software
+2026-04-03,Payroll taxes and pension contributions,-23400,Payroll
+2026-04-03,Slack Business+ subscription,-900,Software
+2026-04-03,Client invoice - Nordea Danmark,78000,Revenue
+2026-04-03,Client invoice - LEGO A/S,143000,Revenue
+2026-04-03,Client invoice - Ørsted A/S,122000,Revenue
+2026-04-03,Client invoice - Bestseller A/S,58000,Revenue
+2026-04-03,Market research report,-13600,Research
+2026-04-03,Hardware - monitors and peripherals,-10800,Equipment
+2026-04-03,VAT payment - Skattestyrelsen,-63400,VAT
+2026-04-04,Pension provider - Danica Pension,-12400,Payroll
+2026-04-04,Notion Teams subscription,-600,Software
+2026-04-05,Mobile and internet - business,-2100,Utilities
+2026-04-05,Cleaning service - CleanDK,-4200,Office
+2026-04-06,Loan repayment - Danske Bank,-18500,Financing
+2026-04-06,Canteen and catering service,-6800,Entertainment
+2026-04-06,Client invoice - Nordea Danmark,44000,Revenue
+2026-04-06,Client invoice - ISS A/S,70000,Revenue
+2026-04-06,Client invoice - Pandora A/S,48000,Revenue
+2026-04-06,Conference tickets - Web Summit,-13500,Education
+2026-04-06,Team offsite - Bornholm,-19500,Entertainment
+2026-04-07,Client invoice - Carlsberg Group,63000,Revenue
+2026-04-07,Client invoice - Lundbeck A/S,73000,Revenue
+2026-04-07,Client invoice - Falck A/S,29000,Revenue
+2026-04-07,Client invoice - Carlsberg Group,36000,Revenue
+2026-04-07,Travel - Berlin tech summit,-10800,Travel
+2026-04-07,Adobe Creative Cloud team,-3600,Software
+2026-04-08,Client invoice - Vestas Wind Systems,87000,Revenue
+2026-04-08,Client invoice - Pandora A/S,43000,Revenue
+2026-04-08,Client invoice - Pandora A/S,55000,Revenue
+2026-04-09,Office furniture - standing desks,-19800,Office
+2026-04-09,Adobe Creative Cloud team,-3600,Software
+2026-04-10,Client invoice - LEGO A/S,98000,Revenue
+2026-04-10,Client invoice - DSB,40000,Revenue
+2026-04-10,Client invoice - Novo Nordisk A/S,127000,Revenue
+2026-04-10,Client invoice - Bestseller A/S,35000,Revenue
+2026-04-10,Client invoice - Coloplast A/S,70000,Revenue
+2026-04-13,Client invoice - Arla Foods,49000,Revenue
+2026-04-13,Client invoice - Falck A/S,52000,Revenue
+2026-04-13,Client invoice - Danfoss A/S,59000,Revenue
+2026-04-13,Client invoice - Rockwool International,57000,Revenue
+2026-04-13,PR agency retainer - Monday Kommunikation,-20200,Marketing
+2026-04-13,SEO agency - Obsidian Digital,-8100,Marketing
+2026-04-13,PR agency retainer - Monday Kommunikation,-12300,Marketing
+2026-04-14,Client invoice - Danfoss A/S,54000,Revenue
+2026-04-14,Client invoice - Novo Nordisk A/S,99000,Revenue
+2026-04-14,Client invoice - Rockwool International,50000,Revenue
+2026-04-14,Office furniture - standing desks,-17500,Office
+2026-04-14,Friday bar and social events,-5300,Entertainment
+2026-04-15,Client invoice - Danfoss A/S,95000,Revenue
+2026-04-15,Client invoice - Copenhagen Airport,93000,Revenue
+2026-04-15,Client invoice - Coloplast A/S,71000,Revenue
+2026-04-15,Client invoice - DSB,41000,Revenue
+2026-04-15,Client invoice - Danske Bank,43000,Revenue
+2026-04-15,Contractor invoice - data analysis,-18000,Contractors
+2026-04-15,Travel - client meetings Copenhagen,-3700,Travel
+2026-04-15,Travel - London conference,-20800,Travel
+2026-04-16,Client invoice - DSB,37000,Revenue
+2026-04-16,Client invoice - Vestas Wind Systems,91000,Revenue
+2026-04-16,Client invoice - Ørsted A/S,131000,Revenue
+2026-04-16,Client invoice - Copenhagen Airport,94000,Revenue
+2026-04-16,Client invoice - Coloplast A/S,86000,Revenue
+2026-04-16,Team offsite - Bornholm,-22800,Entertainment
+2026-04-16,Conference tickets - Web Summit,-11400,Education
+2026-04-16,SEO agency - Obsidian Digital,-10200,Marketing
+2026-04-17,Client invoice - ISS A/S,44000,Revenue
+2026-04-17,Client invoice - Ørsted A/S,65000,Revenue
+2026-04-17,Client invoice - Grundfos A/S,57000,Revenue
+2026-04-17,Travel - Berlin tech summit,-11600,Travel
+2026-04-17,Friday bar and social events,-6700,Entertainment
+2026-04-20,Client invoice - DSB,25000,Revenue
+2026-04-20,Client invoice - DSB,38000,Revenue
+2026-04-20,Client invoice - Lundbeck A/S,46000,Revenue
+2026-04-20,Client invoice - TDC Erhverv,38000,Revenue
+2026-04-20,Client invoice - Danske Bank,49000,Revenue
+2026-04-20,Team offsite - Bornholm,-30500,Entertainment
+2026-04-20,Conference tickets - Web Summit,-12600,Education
+2026-04-21,Client invoice - Pandora A/S,68000,Revenue
+2026-04-21,Client invoice - Tryg Forsikring,53000,Revenue
+2026-04-21,Client invoice - Copenhagen Airport,97000,Revenue
+2026-04-21,Client invoice - Pandora A/S,69000,Revenue
+2026-04-22,Legal fees - Plesner Advokatpartnerselskab,-17700,Professional Services
+2026-04-22,Corporation tax prepayment - Skattestyrelsen,-40000,Tax
+2026-04-23,Client invoice - Danske Bank,83000,Revenue
+2026-04-23,Client invoice - Rockwool International,29000,Revenue
+2026-04-23,Client invoice - Coloplast A/S,35000,Revenue
+2026-04-24,Client invoice - Novo Nordisk A/S,54000,Revenue
+2026-04-24,Client invoice - Maersk A/S,73000,Revenue
+2026-04-24,Client invoice - Novo Nordisk A/S,76000,Revenue
+2026-04-24,Client invoice - Maersk A/S,67000,Revenue
+2026-04-24,Client invoice - Maersk A/S,60000,Revenue
+2026-04-24,Client invoice - Maersk A/S,54000,Revenue
+2026-04-24,LinkedIn Learning team license,-6300,Education
+2026-04-24,Office furniture - standing desks,-19300,Office
+2026-04-24,Conference tickets - Web Summit,-15600,Education
